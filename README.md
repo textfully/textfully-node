@@ -42,20 +42,6 @@ await textfully.send(
 
 Check out example implementations in the [examples](./examples) directory.
 
-## Deployment
-
-This repository includes a GitHub Actions workflow that automatically publishes the package to NPM when a new release is created.
-
-To publish a new version:
-
-```sh
-# Update version in package.json
-npm version patch  # or minor, or major
-
-# Push changes and tags
-git push && git push --tags
-```
-
 ## Contributing
 
 Contributing to the Node.js library is a great way to get involved with the Textfully community. Reach out to us on [Discord](https://discord.gg/Ct6FDCpFBU) or through email at [textfully@gtfol.inc](mailto:textfully@gtfol.inc) if you want to get involved.
