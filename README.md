@@ -4,8 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Build](https://github.com/gtfol/textfully-node/actions/workflows/node.yml/badge.svg)
 [![codecov](https://codecov.io/gh/gtfol/textfully-node/branch/main/graph/badge.svg)](https://codecov.io/gh/gtfol/textfully-node)
-[![npm version](https://badge.fury.io/js/textfully.svg)](https://www.npmjs.com/package/textfully)
-[![Node Version](https://img.shields.io/node/v/textfully)](https://www.npmjs.com/package/textfully)
+[![npm version](https://img.shields.io/npm/v/textfully)](https://www.npmjs.com/package/textfully)
 
 ---
 
