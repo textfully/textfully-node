@@ -25,6 +25,19 @@ export class Textfully {
     });
   }
 
+  private transformSnakeToCamel<T>(obj: any): T {
+    if (Array.isArray(obj)) {
+      return obj.map((v) => this.transformSnakeToCamel(v)) as any;
+    } else if (obj !== null && typeof obj === "object") {
+      return Object.keys(obj).reduce((result, key) => {
+        const camelKey = key.replace(/_([a-z])/g, (g) => g[1].toUpperCase());
+        result[camelKey] = this.transformSnakeToCamel(obj[key]);
+        return result;
+      }, {} as any);
+    }
+    return obj;
+  }
+
   private async fetchRequest<T>(
     path: string,
     options = {}
@@ -61,7 +74,8 @@ export class Textfully {
         }
       }
 
-      const data = await response.json();
+      const rawData = await response.json();
+      const data = this.transformSnakeToCamel<T>(rawData);
       return { data, error: null };
     } catch (error) {
       return {

@@ -39,6 +39,7 @@ export interface SendMessageOptions {
 export interface SendMessageResponse {
   id: string;
   status: string;
+  sentAt: string;
 }
 
 export interface PostOptions {
