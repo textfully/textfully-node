@@ -24,6 +24,11 @@ export interface ErrorResponse {
 
 export type Tag = { name: string; value: string };
 
+export enum MessageService {
+  SMS = "sms",
+  IMESSAGE = "imessage",
+}
+
 export interface TextfullyConfig {
   apiKey: string;
   baseUrl?: string;
@@ -32,8 +37,8 @@ export interface TextfullyConfig {
 
 export interface SendMessageOptions {
   to: string;
-  message: string;
-  mediaUrl?: string;
+  text: string;
+  service?: MessageService;
 }
 
 export interface SendMessageResponse {

@@ -15,5 +15,5 @@ const textfully = new Textfully({ apiKey });
 
 textfully.send({
   to: "+16175555555", // verified phone number,
-  message: "Hello from tests!",
+  text: "Hello from tests!",
 });

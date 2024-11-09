@@ -38,6 +38,22 @@ export class Textfully {
     return obj;
   }
 
+  private transformCamelToSnake<T>(obj: any): T {
+    if (Array.isArray(obj)) {
+      return obj.map((v) => this.transformCamelToSnake(v)) as any;
+    } else if (obj !== null && typeof obj === "object") {
+      return Object.keys(obj).reduce((result, key) => {
+        const snakeKey = key.replace(
+          /[A-Z]/g,
+          (letter) => `_${letter.toLowerCase()}`
+        );
+        result[snakeKey] = this.transformCamelToSnake(obj[key]);
+        return result;
+      }, {} as any);
+    }
+    return obj;
+  }
+
   private async fetchRequest<T>(
     path: string,
     options = {}
@@ -92,7 +108,7 @@ export class Textfully {
     const requestOptions = {
       method: "POST",
       headers: this.headers,
-      body: JSON.stringify(entity),
+      body: JSON.stringify(this.transformCamelToSnake(entity)),
       ...options,
     };
 
@@ -113,7 +129,7 @@ export class Textfully {
     const requestOptions = {
       method: "PUT",
       headers: this.headers,
-      body: JSON.stringify(entity),
+      body: JSON.stringify(this.transformCamelToSnake(entity)),
       ...options,
     };
 
@@ -124,7 +140,7 @@ export class Textfully {
     const requestOptions = {
       method: "PATCH",
       headers: this.headers,
-      body: JSON.stringify(entity),
+      body: JSON.stringify(this.transformCamelToSnake(entity)),
       ...options,
     };
 

@@ -195,6 +195,7 @@ describe("Textfully", () => {
       const mockResponse: SendMessageResponse = {
         id: "msg_123",
         status: "sent",
+        sentAt: "2024-11-09T16:54:23.127072Z",
       };
       fetchMock.mockResolvedValueOnce({
         ok: true,
@@ -202,8 +203,8 @@ describe("Textfully", () => {
       } as Response);
 
       const result = await client.send({
-        to: "+16178856037",
-        message: "Hello from tests!",
+        to: "+16175555555",
+        text: "Hello from tests!",
       });
 
       expect(result.data).toEqual(mockResponse);
@@ -212,10 +213,14 @@ describe("Textfully", () => {
         "https://api.textfully.dev/v1/messages",
         {
           method: "POST",
-          headers: expect.any(Headers),
+          headers: new Headers({
+            Authorization: "Bearer test-api-key",
+            "User-Agent": "textfully-node/0.1.0",
+            "Content-Type": "application/json",
+          }),
           body: JSON.stringify({
-            to: "+16178856037",
-            message: "Hello from tests!",
+            to: "+16175555555",
+            text: "Hello from tests!",
           }),
         }
       );
@@ -234,11 +239,40 @@ describe("Textfully", () => {
 
       const result = await client.send({
         to: "invalid",
-        message: "Hello",
+        text: "Hello",
       });
 
       expect(result.data).toBeNull();
       expect(result.error).toEqual(errorResponse);
+    });
+
+    it("should transform camelCase to snake_case in requests", async () => {
+      const mockResponse: SendMessageResponse = {
+        id: "msg_123",
+        status: "sent",
+        sentAt: "2024-11-09T16:54:23.127072Z",
+      };
+
+      fetchMock.mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockResponse,
+      } as Response);
+
+      const result = await client.send({
+        to: "+16175555555",
+        text: "Hello!",
+      });
+
+      expect(fetchMock).toHaveBeenCalledWith(
+        "https://api.textfully.dev/v1/messages",
+        expect.objectContaining({
+          method: "POST",
+          body: JSON.stringify({
+            to: "+16175555555",
+            text: "Hello!",
+          }),
+        })
+      );
     });
   });
 });
