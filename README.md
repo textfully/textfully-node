@@ -39,7 +39,7 @@ await textfully.send(
 );
 ```
 
-Check out example implementations in the [examples](./examples) directory.
+Check out example implementations in the [examples](https://github.com/gtfol/textfully-node/tree/main/examples) directory.
 
 ## Contributing
 
