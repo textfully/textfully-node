@@ -27,7 +27,7 @@ First, you need to generate an API key from the [Textfully Dashboard](https://te
 
 ## Quick Start
 
-```typescript
+```ts
 import { Textfully } from "textfully";
 
 // Set your API key
@@ -35,10 +35,12 @@ const textfully = new Textfully("tx_apikey");
 
 // Send a message
 await textfully.send(
-    "+16175555555", // verified phone number
-    "Hello, world!"
-)
+  "+16175555555", // verified phone number
+  "Hello, world!"
+);
 ```
+
+Check out example implementations in the [examples](./examples) directory.
 
 ## Contributing
 

@@ -29,6 +29,14 @@ export enum MessageService {
   IMESSAGE = "imessage",
 }
 
+export enum MessageStatus {
+  PENDING = "pending",
+  SENT = "sent",
+  DELIVERED = "delivered",
+  READ = "read",
+  FAILED = "failed",
+}
+
 export interface TextfullyConfig {
   apiKey: string;
   baseUrl?: string;
@@ -43,8 +51,10 @@ export interface SendMessageOptions {
 
 export interface SendMessageResponse {
   id: string;
-  status: string;
+  service: MessageService;
+  status: MessageStatus;
   sentAt: string;
+  smsFallback: boolean;
 }
 
 export interface PostOptions {

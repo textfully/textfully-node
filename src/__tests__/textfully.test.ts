@@ -1,5 +1,9 @@
 import { Textfully } from "../textfully";
-import { SendMessageResponse } from "../interfaces";
+import {
+  MessageService,
+  MessageStatus,
+  SendMessageResponse,
+} from "../interfaces";
 
 describe("Textfully", () => {
   let client: Textfully;
@@ -194,8 +198,10 @@ describe("Textfully", () => {
     it("should send a text message successfully", async () => {
       const mockResponse: SendMessageResponse = {
         id: "msg_123",
-        status: "sent",
+        service: MessageService.IMESSAGE,
+        status: MessageStatus.SENT,
         sentAt: "2024-11-09T16:54:23.127072Z",
+        smsFallback: false,
       };
       fetchMock.mockResolvedValueOnce({
         ok: true,
@@ -249,8 +255,10 @@ describe("Textfully", () => {
     it("should transform camelCase to snake_case in requests", async () => {
       const mockResponse: SendMessageResponse = {
         id: "msg_123",
-        status: "sent",
+        service: MessageService.IMESSAGE,
+        status: MessageStatus.SENT,
         sentAt: "2024-11-09T16:54:23.127072Z",
+        smsFallback: false,
       };
 
       fetchMock.mockResolvedValueOnce({

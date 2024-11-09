@@ -6,6 +6,7 @@ dotenv.config();
 
 // Get API key from environment variables
 const apiKey = process.env.TEXTFULLY_API_KEY;
+const toNumber = "your-verified-phone-number"; // Include international code (e.g. +1 for US/Canada)
 
 if (!apiKey) {
   throw new Error("TEXTFULLY_API_KEY environment variable is not set");
@@ -13,7 +14,13 @@ if (!apiKey) {
 
 const textfully = new Textfully({ apiKey });
 
-textfully.send({
-  to: "+16175555555", // verified phone number,
-  text: "Hello from tests!",
-});
+const sendText = async () => {
+  const response = await textfully.send({
+    to: toNumber,
+    text: "Hello, world!",
+  });
+
+  console.log(response);
+};
+
+sendText();
