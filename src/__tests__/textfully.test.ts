@@ -209,7 +209,7 @@ describe("Textfully", () => {
       } as Response);
 
       const result = await client.send({
-        to: "+16175555555",
+        to: "+16178856037",
         text: "Hello from tests!",
       });
 
@@ -225,7 +225,7 @@ describe("Textfully", () => {
             "Content-Type": "application/json",
           }),
           body: JSON.stringify({
-            to: "+16175555555",
+            to: "+16178856037",
             text: "Hello from tests!",
           }),
         }
@@ -267,7 +267,7 @@ describe("Textfully", () => {
       } as Response);
 
       const result = await client.send({
-        to: "+16175555555",
+        to: "+16178856037",
         text: "Hello!",
       });
 
@@ -276,7 +276,7 @@ describe("Textfully", () => {
         expect.objectContaining({
           method: "POST",
           body: JSON.stringify({
-            to: "+16175555555",
+            to: "+16178856037",
             text: "Hello!",
           }),
         })

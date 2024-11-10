@@ -34,7 +34,7 @@ const textfully = new Textfully("tx_apikey");
 
 // Send a message
 await textfully.send(
-  "+16175555555", // verified phone number
+  "+16178856037", // verified phone number
   "Hello, world!"
 );
 ```
