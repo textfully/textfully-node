@@ -2,8 +2,8 @@
 
 [![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![Build](https://github.com/gtfol/textfully-node/actions/workflows/node.yml/badge.svg)
-[![codecov](https://codecov.io/gh/gtfol/textfully-node/branch/main/graph/badge.svg)](https://codecov.io/gh/gtfol/textfully-node)
+![Build](https://github.com/textfully/textfully-node/actions/workflows/node.yml/badge.svg)
+[![codecov](https://codecov.io/gh/textfully/textfully-node/branch/main/graph/badge.svg)](https://codecov.io/gh/textfully/textfully-node)
 [![npm version](https://img.shields.io/npm/v/textfully)](https://www.npmjs.com/package/textfully)
 
 ---
@@ -39,11 +39,11 @@ const textfully = new Textfully({ apiKey: "tx_apikey" });
 // Send a message
 await textfully.send({
   to: "+16178856037", // verified phone number
-  text: "Hello, world!"
+  text: "Hello, world!",
 });
 ```
 
-Check out example implementations in the [examples](https://github.com/gtfol/textfully-node/tree/main/examples) directory.
+Check out example implementations in the [examples](https://github.com/textfully/textfully-node/tree/main/examples) directory.
 
 ## Contributing
 
