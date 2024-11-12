@@ -18,6 +18,10 @@ npm install textfully
 yarn add textfully
 # or
 pnpm add textfully
+# or
+bun add textfully
+# or
+deno add npm:textfully
 ```
 
 ## Setup
@@ -30,13 +34,13 @@ First, you need to generate an API key from the [Textfully Dashboard](https://te
 import { Textfully } from "textfully";
 
 // Set your API key
-const textfully = new Textfully("tx_apikey");
+const textfully = new Textfully({ apiKey: "tx_apikey" });
 
 // Send a message
-await textfully.send(
-  "+16178856037", // verified phone number
-  "Hello, world!"
-);
+await textfully.send({
+  to: "+16178856037", // verified phone number
+  text: "Hello, world!"
+});
 ```
 
 Check out example implementations in the [examples](https://github.com/gtfol/textfully-node/tree/main/examples) directory.
