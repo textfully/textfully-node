@@ -1,6 +1,6 @@
 {
   "name": "textfully",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Textfully Node.js SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
