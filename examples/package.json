@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "textfully": "^0.1.7"
+    "textfully": "^0.1.8"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
