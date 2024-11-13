@@ -41,8 +41,7 @@
     "typescript": "^5.6.3"
   },
   "files": [
-    "dist/**/*",
-    "docs/**/*",
+    "dist",
     "!**/*.spec.*",
     "!**/*.json",
     "!**/*.tsbuildinfo",
