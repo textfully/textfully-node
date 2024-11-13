@@ -1,4 +1,4 @@
-import { Textfully } from "../src/textfully";
+import { Textfully } from "textfully";
 import dotenv from "dotenv";
 
 // Load environment variables from .env file
